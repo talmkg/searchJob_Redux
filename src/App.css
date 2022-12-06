@@ -1,0 +1,15 @@
+* {
+}
+#fluid {
+  background-image: url(https://www.japantimes.co.jp/wp-content/uploads/2021/02/np_file_67133.jpeg) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 2rem;
+}
+#container {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: white;
+  min-height: 100vh !important;
+}
