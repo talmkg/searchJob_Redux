@@ -1,9 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import { useNavigate } from "react-router-dom";
 
 function NavBar() {
-  const navigate = useNavigate();
   return (
     <Navbar>
       <Container>

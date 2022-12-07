@@ -7,9 +7,10 @@ import {
   Button,
 } from "react-bootstrap";
 import NavBar from "./NavBar";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { XSquare } from "react-bootstrap-icons";
+import { removeFromFavouriteAction } from "../redux/actions";
 
 const Favourites = () => {
   const navigate = useNavigate();
@@ -42,19 +43,24 @@ const Favourites = () => {
                 <ListGroup className="text-dark">
                   {favourites.map((fav, i) => (
                     <ListGroup.Item key={i} className="bg-light">
-                      {" "}
-                      <XSquare
-                        color="red"
-                        size={18}
-                        className="mr-3 my-auto"
-                        onClick={() =>
-                          dispatch({
-                            type: "REMOVE_FROM_FAVOURITE",
-                            payload: fav,
-                          })
-                        }
-                      />{" "}
-                      <span className="font-weight-bold">{fav}</span>
+                      <div className="d-flex justify-content-between">
+                        <XSquare
+                          color="red"
+                          size={18}
+                          className="mr-3 my-auto"
+                          onClick={() =>
+                            dispatch(removeFromFavouriteAction(fav))
+                          }
+                        />
+
+                        <Link to={`/${fav}`} className="font-weight-bold">
+                          <div>{fav}</div>
+                        </Link>
+                        <div>
+                          Click on the company to see all available positions
+                          there.
+                        </div>
+                      </div>
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
